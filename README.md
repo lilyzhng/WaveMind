@@ -6,8 +6,8 @@ WaveMind is a Claude Code skill that lives inside your thinking conversations. I
 ## Key Features
 You have hundreds of ideas a day, but the human context window is limited. By the time you sit down to build, you've lost the thread between the original spark and the final decision. WaveMind preserves that thread.
 
-**Thinking Partner**
-WaveMind is not just a recorder. It acts as a thinking partner that asks open-ended questions, pushes back when something doesn't add up, and creates productive friction instead of just agreeing. The best thinking requires disturbance. If you're only hearing "yes, great idea," something's wrong.
+**Thinking Partner** (`CLAUDE.md`)
+- It acts as a thinking partner that asks good questions, pushes back when something doesn't add up, and creates productive friction instead of just agreeing. The best thinking requires disturbance. If you're only hearing "yes, great idea," something's wrong.
 
 **Capture** (`/wavemind capture`)
 - Records your conversation as it happens, round by round
@@ -67,6 +67,10 @@ wavemind/
 - **Editorial, not generative.** Extract what was actually said. Don't generate insights.
 - **First person.** It's your living memory, not a third-party report.
 - **Progressive disclosure.** Punchline visible, full transcript on demand.
+
+## License
+
+MIT
 
 ## License
 
