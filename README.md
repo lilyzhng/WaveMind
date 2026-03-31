@@ -70,8 +70,4 @@ wavemind/
 
 ## License
 
-MIT
-
-## License
-
-MIT
+[MIT](LICENSE)
