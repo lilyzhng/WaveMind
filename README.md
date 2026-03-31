@@ -49,18 +49,14 @@ cp -r wavemind/ ~/.claude/skills/
 
 ## Output Examples
 
-See `docs/` for a full input/output pair:
+See `examples/` for a full input/output pair:
 
 | File | Description |
 |------|-------------|
 | `example-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
 | `example-benchmark.html` | Visualized output generated from that artifact |
-
-Open the HTML file in any browser to see the final result. Compare it against the raw markdown to understand what the visualization pipeline does.
-
-Also included:
-- `example-multiagent.html` - A team restructuring brainstorm
-- `example-design-evolution.png` - Design evolution capture
+| `example-multiagent.html` | A team restructuring brainstorm |
+| `example-design-evolution.png` | Design evolution capture |
 
 ## Structure
 
@@ -71,8 +67,7 @@ wavemind/
 │   ├── capture.sh    # Capture and indexing scripts
 │   ├── store.sh      # Storage management
 │   └── visualize.sh  # Visualization pipeline
-├── docs/
-│   └── reference/    # Design reference images
+├── examples/         # Example input/output pairs
 └── data/             # Runtime data (gitignored)
     ├── index.json    # Artifact registry
     ├── artifacts/    # Raw markdown files
