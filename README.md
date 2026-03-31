@@ -1,5 +1,5 @@
 # WaveMind
-**WaveMind** is a Claude Code skill that captures your thoughts. Paired with voice input (I use [Wispr Flow](https://www.wispr.com)), it records the raw back-and-forth as it happens, then turns it into a beautiful visual document you can revisit weeks later.
+**WaveMind** is a Claude Code skill that captures your thoughts, it records the raw back-and-forth as it happens, then turns it into a beautiful thinking artifacts you can revisit weeks later.
 
 <img src="examples/teaser.png" width="800">
 
@@ -27,6 +27,7 @@ cp -r wavemind/ ~/.claude/skills/
 ```
 
 ## Usage
+For most frictionless capture, I would pair wavemind with voice input (I use [Wispr Flow](https://wisprflow.ai/) or /voice).
 
 ```
 /wavemind capture "Topic Name"    # Start recording a conversation
