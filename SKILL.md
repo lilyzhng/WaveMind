@@ -18,13 +18,13 @@ Capture a thinking artifact. Two modes:
 1. Read the file at `<filepath>`
 2. Analyze the content to extract: title, round count, word count, source type
 3. Generate a short ID from the date and title (e.g., `20260327-zai-prep`)
-4. Run `bash agents/skills/wavemind/lib/capture.sh <filepath> "<title>"` to copy and index it
+4. Run `bash lib/capture.sh <filepath> "<title>"` to copy and index it
 5. Report what was captured
 
 **Mode 2: Live capture** (`/wavemind capture` or `/wavemind capture "Topic Name"`)
 When no filepath is given, start a live capture session:
 1. Ask the user for a topic name if not provided
-2. Create the artifact file immediately: `agents/skills/wavemind/data/artifacts/<id>.md` with title and metadata header
+2. Create the artifact file immediately: `data/artifacts/<id>.md` with title and metadata header
 3. Tell the user: "Recording this conversation. Talk naturally. When you're done, say 'done' or 'save'."
 4. Continue the conversation normally, responding as you would to any request
 5. **Capture incrementally, not at the end.** After each round (a topic reaches a natural pause, the user moves to a new question, or a decision is made), append that round to the artifact file right away. Each round gets:
@@ -34,7 +34,7 @@ When no filepath is given, start a live capture session:
    - This avoids the lossy "reconstruct everything from memory at the end" problem.
 6. When the user says "done", "save", or "stop recording":
    - Append any remaining conversation not yet written
-   - Run `bash agents/skills/wavemind/lib/capture.sh` to finalize and index it
+   - Run `bash lib/capture.sh` to finalize and index it
    - Report: artifact ID, title, round count, word count, file path
    - Suggest: "Run `/wavemind visualize <id>` to generate the visual."
 
@@ -42,7 +42,7 @@ When no filepath is given, start a live capture session:
 Generate a living memory document from a stored thinking artifact.
 
 **Steps:**
-1. Read the artifact from `agents/skills/wavemind/data/artifacts/<id>.md`
+1. Read the artifact from `data/artifacts/<id>.md`
 2. Analyze the thinking artifact. Your job is **editorial, not generative**:
    - Identify distinct rounds/sections of the conversation
    - Extract **punchline quotes** (memorable original words from each speaker)
@@ -57,14 +57,14 @@ Generate a living memory document from a stored thinking artifact.
    - Dialogue format with speech bubbles (user = white left-aligned, other speakers = dark right-aligned)
    - Progressive disclosure: punchline visible, full transcript behind "Read original" toggle
    - The HTML must be fully self-contained (inline CSS/JS, no external dependencies)
-5. Save to `agents/skills/wavemind/data/visuals/<id>.html`
+5. Save to `data/visuals/<id>.html`
 6. Report the file path
 
 ### `/wavemind list`
 Browse all stored thinking artifacts and their visualization status.
 
 **Steps:**
-1. Read `agents/skills/wavemind/data/index.json`
+1. Read `data/index.json`
 2. Display a formatted table:
 
 ```
@@ -134,11 +134,11 @@ When generating the HTML visualization:
 - **Self-contained:** All CSS and JS must be inline. No external dependencies.
 - **Responsive:** Hide quote callouts on mobile, switch to single-column layout.
 
-**Reference:** See `agents/skills/wavemind/data/visuals/` for an approved example (ZAI Ambassador Prep).
+**Reference:** See `data/visuals/` for an approved example (ZAI Ambassador Prep).
 
 ## Data Directory
 
-All runtime data lives in `agents/skills/wavemind/data/` (gitignored):
+All runtime data lives in `data/` (gitignored):
 
 ```
 data/
