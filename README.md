@@ -1,14 +1,10 @@
-<div align="center">
-
 # WaveMind
 
 **Turn thinking conversations into living memories.**
 
-</div>
-
 WaveMind is a Claude Code skill that lives inside your thinking conversations. It captures the raw back-and-forth as it happens, then turns it into a beautiful visual document you can revisit weeks later.
 
-The problem it solves: you have hundreds of ideas a day, but the human context window is limited. By the time you sit down to build, you've lost the thread between the original spark and the final decision. WaveMind preserves that thread.
+You have hundreds of ideas a day, but the human context window is limited. By the time you sit down to build, you've lost the thread between the original spark and the final decision. WaveMind preserves that thread.
 
 ## Design Principles
 
@@ -42,8 +38,6 @@ WaveMind works best when the AI acts as a thinking partner, not just a recorder.
 The best thinking requires disturbance. If you're only hearing "yes, great idea," something's wrong.
 
 ## Installation
-
-Copy this skill into your Claude Code skills directory:
 
 ```bash
 cp -r wavemind/ ~/.claude/skills/
