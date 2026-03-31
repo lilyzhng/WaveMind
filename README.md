@@ -1,16 +1,23 @@
 <div align="center">
-<img src="teaser.png" width="800">
 
 # WaveMind
 
-**Turn thinking conversations into living memory documents.**
-</div>
+**Turn thinking conversations into living memories.**
 
-## What It Does
+</div>
 
 WaveMind is a Claude Code skill that lives inside your thinking conversations. It captures the raw back-and-forth as it happens, then turns it into a beautiful visual document you can revisit weeks later.
 
 The problem it solves: you have hundreds of ideas a day, but the human context window is limited. By the time you sit down to build, you've lost the thread between the original spark and the final decision. WaveMind preserves that thread.
+
+## Design Principles
+
+<img src="teaser.png" width="800">
+
+- **Raw, not summarized.** Fix typos, but don't rephrase. The original words matter.
+- **Editorial, not generative.** Extract what was actually said. Don't generate insights.
+- **First person.** It's your living memory, not a third-party report.
+- **Progressive disclosure.** Punchline visible, full transcript on demand.
 
 ## Two Modes
 
@@ -77,13 +84,6 @@ wavemind/
     ├── artifacts/    # Raw markdown files
     └── visuals/      # Generated HTML files
 ```
-
-## Design Principles
-
-- **Raw, not summarized.** Fix typos, but don't rephrase. The original words matter.
-- **Editorial, not generative.** Extract what was actually said. Don't generate insights.
-- **First person.** It's your living memory, not a third-party report.
-- **Progressive disclosure.** Punchline visible, full transcript on demand.
 
 ## License
 
