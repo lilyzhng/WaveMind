@@ -1,7 +1,7 @@
 # WaveMind
 WaveMind is a Claude Code skill that lives inside your thinking conversations. It captures the raw back-and-forth as it happens, then turns it into a beautiful visual document you can revisit weeks later.
 
-<img src="teaser.png" width="800">
+<img src="examples/teaser.png" width="800">
 
 ## Key Features
 You have hundreds of ideas a day, but the human context window is limited. By the time you sit down to build, you've lost the thread between the original spark and the final decision. WaveMind preserves that thread.
