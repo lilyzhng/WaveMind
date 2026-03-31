@@ -14,7 +14,7 @@ You have hundreds of ideas a day, but the human context window is limited. By th
 - No summarization. Raw words, preserved exactly as spoken
 - Say "done" or "save" when you're finished
 
-**Visualize** (`/wavemind visualize <id>`)
+**Visualize** (`/wavemind visualize`)
 - Turns the raw artifact into a self-contained HTML document
 - Editorial layout: cream background, serif headers, gold accents
 - Progressive disclosure: punchline quotes visible, full transcript behind toggle
@@ -31,7 +31,7 @@ cp -r wavemind/ ~/.claude/skills/
 ```
 /wavemind capture "Topic Name"    # Start recording a conversation
 /wavemind capture path/to/file    # Import an existing file
-/wavemind visualize thinking_artifacts.md    # Generate the visual via md
+/wavemind visualize thinking.md    # Generate the visual html from md
 /wavemind list                    # Browse all stored artifacts
 ```
 
