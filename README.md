@@ -1,7 +1,7 @@
 # WaveMind
-WaveMind is a Claude Code skill that lives inside your thinking conversations. It captures the raw back-and-forth as it happens, then turns it into a beautiful visual document you can revisit weeks later.
+**WaveMind** is a Claude Code skill that captures your thoughts. Paired with voice input (I use [Wispr Flow](https://www.wispr.com)), it records the raw back-and-forth as it happens, then turns it into a beautiful visual document you can revisit weeks later.
 
-<img src="teaser.png" width="800">
+<img src="examples/teaser.png" width="800">
 
 ## Key Features
 You have hundreds of ideas a day, but the human context window is limited. By the time you sit down to build, you've lost the thread between the original spark and the final decision. WaveMind preserves that thread.
@@ -37,13 +37,13 @@ cp -r wavemind/ ~/.claude/skills/
 
 ## Output Examples
 
-See `examples/` for a full input/output pair:
+See `data/` for a seeded input/output pair:
 
 | File | Description |
 |------|-------------|
-| `glm-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
-| `glm-benchmark.html` | Visualized output generated from that artifact |
-| `example-design-evolution.png` | Design evolution capture |
+| `data/artifacts/glm-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
+| `data/visuals/glm-benchmark.html` | Visualized output generated from that artifact |
+| `examples/wavemind-design-evolution.png` | Design evolution capture |
 
 ## Structure
 
@@ -54,9 +54,10 @@ wavemind/
 │   ├── capture.sh    # Capture and indexing scripts
 │   ├── store.sh      # Storage management
 │   └── visualize.sh  # Visualization pipeline
-├── examples/         # Example input/output pairs
-└── data/             # Runtime data (gitignored)
-    ├── index.json    # Artifact registry
+├── examples/         # Screenshots and design references
+└── data/             # Runtime data + seeded examples
+    ├── .gitignore    # Ignores runtime data, keeps seeded examples
+    ├── index.json    # Artifact registry (created at runtime)
     ├── artifacts/    # Raw markdown files
     └── visuals/      # Generated HTML files
 ```
