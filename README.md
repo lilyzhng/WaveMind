@@ -31,7 +31,7 @@ cp -r wavemind/ ~/.claude/skills/
 ```
 /wavemind capture "Topic Name"    # Start recording a conversation
 /wavemind capture path/to/file    # Import an existing file
-/wavemind visualize artifact-id   # Generate the visual HTML
+/wavemind visualize thinking_artifacts.md    # Generate the visual via md
 /wavemind list                    # Browse all stored artifacts
 ```
 
@@ -41,9 +41,8 @@ See `examples/` for a full input/output pair:
 
 | File | Description |
 |------|-------------|
-| `example-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
-| `example-benchmark.html` | Visualized output generated from that artifact |
-| `example-multiagent.html` | A team restructuring brainstorm |
+| `glm-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
+| `glm-benchmark.html` | Visualized output generated from that artifact |
 | `example-design-evolution.png` | Design evolution capture |
 
 ## Structure
