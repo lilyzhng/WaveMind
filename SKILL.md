@@ -134,18 +134,18 @@ When generating the HTML visualization:
 - **Self-contained:** All CSS and JS must be inline. No external dependencies.
 - **Responsive:** Hide quote callouts on mobile, switch to single-column layout.
 
-**Reference:** See `data/visuals/` for an approved example (ZAI Ambassador Prep).
+**Reference:** See `data/visuals/glm-benchmark.html` for an approved example (GLM Aesthetic Benchmark).
 
 ## Data Directory
 
-All runtime data lives in `data/` (gitignored):
+Runtime data lives in `data/`. New artifacts and visuals are gitignored, but seeded examples are checked in for reference.
 
 ```
 data/
-├── .gitignore       # Keeps runtime data out of repo
-├── index.json       # Artifact registry
-├── artifacts/       # Raw markdown files
-└── visuals/         # Generated HTML files
+├── .gitignore       # Ignores runtime data, keeps seeded examples
+├── index.json       # Artifact registry (created at runtime)
+├── artifacts/       # Raw markdown files (glm-benchmark.md seeded)
+└── visuals/         # Generated HTML files (glm-benchmark.html seeded)
 ```
 
 ## Index Format

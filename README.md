@@ -37,13 +37,13 @@ cp -r wavemind/ ~/.claude/skills/
 
 ## Output Examples
 
-See `examples/` for a full input/output pair:
+See `data/` for a seeded input/output pair:
 
 | File | Description |
 |------|-------------|
-| `glm-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
-| `glm-benchmark.html` | Visualized output generated from that artifact |
-| `example-design-evolution.png` | Design evolution capture |
+| `data/artifacts/glm-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
+| `data/visuals/glm-benchmark.html` | Visualized output generated from that artifact |
+| `examples/wavemind-design-evolution.png` | Design evolution capture |
 
 ## Structure
 
@@ -54,9 +54,10 @@ wavemind/
 │   ├── capture.sh    # Capture and indexing scripts
 │   ├── store.sh      # Storage management
 │   └── visualize.sh  # Visualization pipeline
-├── examples/         # Example input/output pairs
-└── data/             # Runtime data (gitignored)
-    ├── index.json    # Artifact registry
+├── examples/         # Screenshots and design references
+└── data/             # Runtime data + seeded examples
+    ├── .gitignore    # Ignores runtime data, keeps seeded examples
+    ├── index.json    # Artifact registry (created at runtime)
     ├── artifacts/    # Raw markdown files
     └── visuals/      # Generated HTML files
 ```
