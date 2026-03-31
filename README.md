@@ -27,7 +27,7 @@ cp -r wavemind/ ~/.claude/skills/
 ```
 
 ## Usage
-For most frictionless capture, I would pair wavemind with voice input (I use [Wispr Flow](https://wisprflow.ai/) or /voice).
+For most frictionless capture, I pair wavemind with voice input (I use [Wispr Flow](https://wisprflow.ai/) or [/voice](https://code.claude.com/docs/en/voice-dictation)).
 
 ```
 /wavemind capture "Topic Name"    # Start recording a conversation
