@@ -49,9 +49,18 @@ cp -r wavemind/ ~/.claude/skills/
 
 ## Output Examples
 
-See `docs/` for example visualizations:
-- `example-benchmark.html` - A model benchmark conversation captured live
+See `docs/` for a full input/output pair:
+
+| File | Description |
+|------|-------------|
+| `example-benchmark.md` | Raw captured artifact (10 rounds, ~4500 words) |
+| `example-benchmark.html` | Visualized output generated from that artifact |
+
+Open the HTML file in any browser to see the final result. Compare it against the raw markdown to understand what the visualization pipeline does.
+
+Also included:
 - `example-multiagent.html` - A team restructuring brainstorm
+- `example-design-evolution.png` - Design evolution capture
 
 ## Structure
 
