@@ -1,8 +1,10 @@
+<div align="center">
+<img src="teaser.png" width="800">
+
 # WaveMind
 
-Turn thinking conversations into living memory documents. Capture, visualize, and revisit how your ideas evolved.
-
-![WaveMind teaser](teaser.png)
+**Turn thinking conversations into living memory documents.**
+</div>
 
 ## What It Does
 
