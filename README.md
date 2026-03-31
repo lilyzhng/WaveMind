@@ -2,6 +2,8 @@
 
 Turn thinking conversations into living memory documents. Capture, visualize, and revisit how your ideas evolved.
 
+![WaveMind teaser](teaser.png)
+
 ## What It Does
 
 WaveMind is a Claude Code skill that lives inside your thinking conversations. It captures the raw back-and-forth as it happens, then turns it into a beautiful visual document you can revisit weeks later.
