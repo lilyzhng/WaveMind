@@ -32,6 +32,7 @@ When no filepath is given, start a live capture session:
    - The raw dialogue with `**Speaker:**` labels
    - Original words preserved (including mixed languages). Fix obvious typos but do not rewrite or summarize.
    - This avoids the lossy "reconstruct everything from memory at the end" problem.
+   - **Images:** When the user shares a screenshot or image during the conversation, save it to `data/artifacts/` with a descriptive filename (e.g., `milli-cafe-session.png`). Embed it in the artifact markdown using `![description](filename.png)`. Place the image reference in the dialogue at the point it was shared, under the speaker who shared it.
 6. When the user says "done", "save", or "stop recording":
    - Append any remaining conversation not yet written
    - Run `bash lib/capture.sh` to finalize and index it
@@ -91,6 +92,7 @@ When analyzing a thinking artifact, produce this structure:
       "quote": "Memorable speaker quote, max 10 words",
       "dialogue": [
         {"speaker": "lily", "text": "One thought per bubble. Keep it short."},
+        {"speaker": "lily", "text": "", "image": "screenshot.png", "image_alt": "Terminal color comparison"},
         {"speaker": "growth", "text": "Response in their original words."}
       ],
       "is_pivoting_moment": false
@@ -110,7 +112,7 @@ When analyzing a thinking artifact, produce this structure:
 **Key rules:**
 - `header`: High-signal, from the user's perspective. BAD: "Discussion of Opportunity." GOOD: "I'm the Orchestrator, Not the Promoter."
 - `quote`: A real speaker quote, not AI-generated. The "memory hook," what you'd remember a week later.
-- `dialogue`: The actual back-and-forth, one thought per bubble. Use original words (including mixed Chinese/English). Clean filler but don't rewrite.
+- `dialogue`: The actual back-and-forth, one thought per bubble. Use original words (including mixed Chinese/English). Clean filler but don't rewrite. Entries with an `image` field render as an `<img>` tag inside the bubble instead of (or alongside) text.
 - `is_pivoting_moment`: True only when thinking genuinely shifted direction. Not every round is a pivot.
 - `actionables`: Always include. `why_it_matters` is a single paragraph explaining significance. `items` are concrete, specific next steps. Not vague ("think about X") but actionable ("build X", "pair Y with Z", "test A").
 
@@ -128,10 +130,11 @@ When generating the HTML visualization:
   - **Left column (28%):** Round label, punchline quote callout (large gold open-quote mark, bold italic serif)
   - **Right column:** Section header (bold serif), dialogue bubbles, "Read original" toggle
   - **Dialogue bubbles:** User = white with light border, left-aligned. Other speakers = dark (#2C2C2C), right-aligned. One thought per bubble.
+  - **Images in bubbles:** When a dialogue entry has an image, render it as `<img src="../artifacts/filename.png">` inside the bubble. Style with `max-width: 100%; border-radius: 8px; margin-top: 8px; cursor: pointer`. Add a lightbox overlay so clicking the image shows it fullscreen with an Escape-to-close handler. Use direct file paths (same approach as frontend-slides), not base64 embedding.
   - **Pivoting moments:** Gold-filled timeline dot + "Pivoting Moment" badge
   - **Progressive disclosure:** "Read original" expands to full clean transcript
   - **Footer:** "WaveMind · Captured [date] · Visualized [date]"
-- **Self-contained:** All CSS and JS must be inline. No external dependencies.
+- **Self-contained:** All CSS and JS must be inline. No external dependencies (except images, which are referenced by relative path).
 - **Responsive:** Hide quote callouts on mobile, switch to single-column layout.
 
 **Reference:** See `data/visuals/glm-benchmark.html` for an approved example (GLM Aesthetic Benchmark).
