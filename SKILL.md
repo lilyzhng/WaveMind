@@ -93,6 +93,7 @@ When analyzing a thinking artifact, produce this structure:
       "dialogue": [
         {"speaker": "lily", "text": "One thought per bubble. Keep it short."},
         {"speaker": "lily", "text": "", "image": "screenshot.png", "image_alt": "Terminal color comparison"},
+        {"speaker": "lily", "text": "Here's what it looked like after the fix:", "image": "after-fix.png", "image_alt": "Terminal after color fix"},
         {"speaker": "growth", "text": "Response in their original words."}
       ],
       "is_pivoting_moment": false
