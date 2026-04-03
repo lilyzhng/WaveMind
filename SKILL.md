@@ -40,8 +40,8 @@ When no filepath is given, start a live capture session:
    **Lily:** ...
    **Jackie:** ...
    ```
-3. Tell the user: "Recording this conversation. Talk naturally. When you're done, say 'done' or 'save'."
-4. Continue the conversation normally, responding as you would to any request
+3. Tell the user: "Recording. Talk naturally. Say 'done' or 'save' when finished."
+4. **Write-first flow:** Write both the user's words AND your response directly to the artifact markdown file first. Then give a short terminal reply (1-2 sentences max, e.g. "Written to artifact, Round 3. [brief pointer to what you said]"). Never write a full response in terminal AND in the file. The file is the single source of truth. This avoids duplication and rephrasing.
 5. **Capture incrementally, not at the end.** After each round (a topic reaches a natural pause, the user moves to a new question, or a decision is made), append that round to the artifact file right away. Each round gets:
    - A section header: `## Round N: Title`
    - The raw dialogue with `**Speaker:**` labels
