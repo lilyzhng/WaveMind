@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # WaveMind local JSON store — CRUD operations for artifacts
-# Data lives in data/ (gitignored)
+# Data lives in lily-memory/Thoughts/ (versioned, shared across agents)
 # Requires: jq
 
 set -euo pipefail
@@ -11,15 +11,16 @@ if ! command -v jq &>/dev/null; then
   exit 1
 fi
 
-# Resolve data directory relative to this script
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DATA_DIR="$(cd "$SCRIPT_DIR/../data" && pwd)"
+# Data lives in the public lily-memory repo so artifacts can be browsed
+# and referenced across agents. Override via WAVEMIND_DATA_DIR if needed.
+DATA_DIR="${WAVEMIND_DATA_DIR:-$HOME/Documents/lily-memory/Thoughts}"
 INDEX_FILE="$DATA_DIR/index.json"
 ARTIFACTS_DIR="$DATA_DIR/artifacts"
-VISUALS_DIR="$DATA_DIR/visuals"
+READING_DIR="$DATA_DIR/reading"
+VISUALS_DIR="$DATA_DIR"  # visuals render directly into Thoughts/ root
 
 # Ensure directories exist
-mkdir -p "$ARTIFACTS_DIR" "$VISUALS_DIR"
+mkdir -p "$ARTIFACTS_DIR" "$READING_DIR"
 
 # Initialize index if it doesn't exist
 if [ ! -f "$INDEX_FILE" ]; then
