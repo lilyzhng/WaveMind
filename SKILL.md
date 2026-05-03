@@ -21,14 +21,16 @@ Capture a thinking artifact. Two modes:
 4. Run `bash lib/capture.sh <filepath> "<title>"` to copy and index it
 5. Report what was captured
 
-**Mode 2: Live capture** (`/wavemind capture` or `/wavemind capture "Topic Name"`)
-When no filepath is given, start a live capture session:
+**Mode 2: Live capture** (`/wavemind capture` or `/wavemind capture "Topic Name"` or `/wavemind capture "Topic Name" --output /path/to/file.md`)
+When no filepath is given (or filepath doesn't exist as a file to import), start a live capture session:
 1. Ask the user for a topic name if not provided
-2. **Pick the right folder based on topic:**
-   - Interview prep conversations → `~/Documents/lily-memory/Thoughts/interview_preps/<id>.md`
-     Interview prep = mock interviews, interview gameplan, company research for a specific role, day-plans whose primary focus is interview prep, course-selection conversations for interview prep, pre-interview check-ins.
-   - Everything else → `~/Documents/lily-memory/Thoughts/artifacts/<id>.md`
-3. **Naming convention:** `YYYYMMDD-<topic-slug>.md`. Use the format `YYYYMMDD` with the date the conversation happened. For interview prep, prefer `YYYYMMDD-interview-<slug>.md` or `YYYYMMDD-interview-study-<day>.md` / `YYYYMMDD-interview-plan-MMDD.md` over generic names like `thursday-thinking` or `plan-apr17`. The word "interview" in the slug makes the file self-describing.
+2. **Determine output path:**
+   - If `--output <path>` is specified, write to that exact path. Skip folder selection and naming convention. This allows other skills (e.g. dadclawd) to call WaveMind and control where the conversation is recorded.
+   - If no `--output`, pick the right folder based on topic:
+     - Interview prep conversations → `~/Documents/lily-memory/Thoughts/interview_preps/<id>.md`
+       Interview prep = mock interviews, interview gameplan, company research for a specific role, day-plans whose primary focus is interview prep, course-selection conversations for interview prep, pre-interview check-ins.
+     - Everything else → `~/Documents/lily-memory/Thoughts/artifacts/<id>.md`
+3. **Naming convention (when no --output):** `YYYYMMDD-<topic-slug>.md`. Use the format `YYYYMMDD` with the date the conversation happened. For interview prep, prefer `YYYYMMDD-interview-<slug>.md` or `YYYYMMDD-interview-study-<day>.md` / `YYYYMMDD-interview-plan-MMDD.md` over generic names like `thursday-thinking` or `plan-apr17`. The word "interview" in the slug makes the file self-describing.
 4. Create the artifact file immediately at the chosen path with this structure:
    ```markdown
    # Topic Name - YYYY-MM-DD
