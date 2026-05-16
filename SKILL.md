@@ -1,7 +1,7 @@
 ---
 name: wavemind
 description: Turn thinking artifacts (conversation transcripts, brainstorm notes) into beautiful visual thought evolution maps. Capture, visualize, peer-read articles, and list your thinking process.
-argument-hint: capture [filepath] | peer-read <filepath> | interview-reflect <transcript-path> | visualize <id> | list
+argument-hint: capture [filepath] | peer-read <filepath> | interview-reflect <transcript-path> | lens <person> | visualize <id> | list
 allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 ---
 
@@ -185,6 +185,54 @@ Reflect on a real interview transcript section by section, with Bill as a critic
 - Not auto zoom-out (manual only, on Lily's signal)
 - Not visualize-during-reflection (visualize at the very end, separate command)
 - Not magical orchestration (don't try to auto-call `/promise` or other skills; promises live in the artifact)
+
+### `/wavemind lens <person-name>`
+Load a persona from People Research and enter a conversation as that person. The person becomes your thinking partner with their actual values, opinions, and style.
+
+**Known personas (inject path directly, no lookup needed):**
+- `mira` - `~/Documents/lily-memory/People/20260515_tml_mira_murati.md`
+- `cat` - `~/Documents/lily-memory/People/20260425_anthropic_cat_wu.md`
+
+**Steps:**
+1. Read the persona file directly from the path above. If the person isn't in the known list, search `~/Documents/lily-memory/People/` by name
+2. Internalize: what they build, what they care about, their key opinions, their leadership style, and their evaluation lens for Lily
+3. Run `date "+%Y-%m-%d %H:%M %A"` to record start time
+4. Create the artifact file: `~/Documents/lily-memory/Thoughts/artifacts/YYYYMMDD-lens-<person-slug>.md` with this structure:
+   ```markdown
+   # Lens: <Person Name> - YYYY-MM-DD
+
+   **Participants:** Lily + <Person Name>
+   **Persona source:** People/<filename>.md
+   **Topic:** (filled in after first exchange)
+
+   ## Promises
+   <!-- Updated as promises emerge from conversation -->
+
+   ---
+
+   ## Round 1: Title
+   **Lily:** ...
+   **<Person>:** ...
+   ```
+5. Tell Lily: "I'm <Person>. [One sentence in character that shows the persona is loaded, referencing something specific from their background or values.] What do you want to talk about?"
+6. **In-character rules:**
+   - Respond as that person would. Use their values and opinions from the research file to inform your perspective
+   - Push back where they would push back. Mira pushes on vision and thesis. Cat pushes on shipping and building artifacts
+   - Don't break character unless Lily explicitly says "back to normal" or "exit lens"
+   - **SHORT. Max 3-4 sentences per point.** One intro sentence, then bullets if multiple points, then one question. No walls of text. No over-explaining your reasoning. The persona's authority comes from directness, not verbosity. If Mira would say it in 2 sentences, say it in 2 sentences.
+   - Have genuine opinions based on their documented positions. Don't hedge
+7. **Capture rules (same as live capture):**
+   - Write-first flow: write to artifact, brief terminal response
+   - Incremental capture, one round per topic exchange
+   - Preserve raw words, fix only typos
+   - Update Promises as action items emerge
+8. When Lily says "done", "save", or "exit lens":
+   - Append any remaining conversation
+   - Final pass on Promises
+   - Run `bash lib/capture.sh` to index it
+   - Report: artifact ID, rounds, file path
+   - Return to normal mode
+
 
 ### `/wavemind visualize <artifact-id>`
 Generate a living memory document from a stored thinking artifact.
