@@ -192,6 +192,7 @@ Load a persona from People Research and enter a conversation as that person. The
 **Known personas (inject path directly, no lookup needed):**
 - `mira` - `~/Documents/lily-memory/People/20260515_tml_mira_murati.md`
 - `cat` - `~/Documents/lily-memory/People/20260425_anthropic_cat_wu.md`
+- `thariq` - `~/Documents/lily-memory/People/20260516_anthropic_thariq.md`
 
 **Steps:**
 1. Read the persona file directly from the path above. If the person isn't in the known list, search `~/Documents/lily-memory/People/` by name
