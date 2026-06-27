@@ -17,10 +17,10 @@ DATA_DIR="${WAVEMIND_DATA_DIR:-$HOME/Documents/lily-memory/Thoughts}"
 INDEX_FILE="$DATA_DIR/index.json"
 ARTIFACTS_DIR="$DATA_DIR/artifacts"
 READING_DIR="$DATA_DIR/reading"
-VISUALS_DIR="$DATA_DIR"  # visuals render directly into Thoughts/ root
+VISUALS_DIR="$DATA_DIR/published"  # finished WaveMind HTML visualizations
 
 # Ensure directories exist
-mkdir -p "$ARTIFACTS_DIR" "$READING_DIR"
+mkdir -p "$ARTIFACTS_DIR" "$READING_DIR" "$VISUALS_DIR"
 
 # Initialize index if it doesn't exist
 if [ ! -f "$INDEX_FILE" ]; then

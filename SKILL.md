@@ -254,7 +254,7 @@ Generate a living memory document from a stored thinking artifact.
    - Dialogue format with speech bubbles (user = white left-aligned, other speakers = dark right-aligned)
    - Progressive disclosure: punchline visible, full transcript behind "Read original" toggle
    - The HTML must be fully self-contained (inline CSS/JS, no external dependencies)
-5. Save to `~/Documents/lily-memory/Thoughts/<id>.html`
+5. Save to `~/Documents/lily-memory/Thoughts/published/<id>.html`
 6. Report the file path
 
 ### `/wavemind list`
@@ -349,7 +349,7 @@ When generating the HTML visualization:
 - **Self-contained:** All CSS and JS must be inline. No external dependencies (except images, which are referenced by relative path).
 - **Responsive:** Hide quote callouts on mobile, switch to single-column layout.
 
-**Reference:** See `~/Documents/lily-memory/Thoughts/glm-benchmark.html` for an approved example (GLM Aesthetic Benchmark).
+**Reference:** See `~/Documents/lily-memory/Thoughts/published/glm-benchmark.html` for an approved example (GLM Aesthetic Benchmark).
 
 ## Data Directory
 
