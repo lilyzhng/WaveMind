@@ -2,10 +2,14 @@
 name: wavemind
 description: Turn thinking artifacts (conversation transcripts, brainstorm notes) into beautiful visual thought evolution maps. Capture, visualize, peer-read articles, and list your thinking process.
 argument-hint: capture [filepath] | peer-read <filepath> | interview-reflect <transcript-path> | lens <person> | visualize <id> | list
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+allowed-tools:
+  - read
+  - write
+  - edit
+  - glob
+  - grep
+  - exec
 ---
-
-
 
 # WaveMind: Thought Capture + Visualization
 
