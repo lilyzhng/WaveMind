@@ -33,8 +33,8 @@ if [ -z "$title" ]; then
   title=$(basename "$filepath" .md | sed 's/_/ /g; s/-/ /g' | sed 's/\b\(.\)/\u\1/g')
 fi
 
-# Generate ID from today's date and title
-today=$(date -u +%Y-%m-%d)
+# Generate ID from today's date and title (PT, Lily's local day — not UTC, which rolls over at 5pm PT)
+today=$(TZ=America/Los_Angeles date +%Y-%m-%d)
 id=$(generate_id "$today" "$title")
 
 # Check for duplicates
@@ -61,7 +61,7 @@ entry=$(jq -n \
   --argjson tags "$tags_json" \
   --argjson rounds "$rounds" \
   --argjson wc "$word_count" \
-  --arg created "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+  --arg created "$(TZ=America/Los_Angeles date +%Y-%m-%dT%H:%M:%S%z)" \
   --arg file "artifacts/$id.md" \
   '{id:$id, title:$title, source:$source, tags:$tags, rounds:$rounds, word_count:$wc, created_at:$created, file:$file, visualized:false}')
 
