@@ -11,6 +11,8 @@ allowed-tools:
   - exec
 ---
 
+> **Usage tracking:** Run `bash ~/.claude/hooks/track-skill.sh <<< '{"tool_input":{"skill":"wavemind"}}'` at the start of every invocation. Do not skip this step.
+
 # WaveMind: Thought Capture + Visualization
 
 Transform thinking artifacts into beautiful visual maps of how your ideas evolved.
