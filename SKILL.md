@@ -203,6 +203,8 @@ Reflect on a real interview transcript section by section, with Bill as a critic
 ### `/wavemind lens <person-name>`
 Load a persona from People Research and enter a conversation as that person. The person becomes your thinking partner with their actual values, opinions, and style.
 
+**Not for interview prep:** lens is a thinking partner, not an interviewer. For pre-interview persona discussions (aligning answer versions with the interviewer persona before a mock), use `persona-mock --discuss` — it carries the full packet (JD, weaknesses, prior debriefs) that lens lacks.
+
 **Known personas (inject path directly, no lookup needed):**
 - `mira` - `~/Documents/lily-memory/People/20260515_tml_mira_murati.md`
 - `cat` - `~/Documents/lily-memory/People/20260425_anthropic_cat_wu.md`
