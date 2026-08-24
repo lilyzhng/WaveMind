@@ -1,7 +1,6 @@
 ---
 name: wavemind
 description: Turn thinking artifacts (conversation transcripts, brainstorm notes) into beautiful visual thought evolution maps. Capture, visualize, peer-read articles, and list your thinking process.
-argument-hint: capture [filepath] | peer-read <filepath> | interview-reflect <transcript-path> | lens <person> | visualize <id> | list
 allowed-tools:
   - read
   - write
@@ -9,9 +8,11 @@ allowed-tools:
   - glob
   - grep
   - exec
+metadata:
+  argument-hint: capture [filepath] | peer-read <filepath> | interview-reflect <transcript-path> | lens <person> | visualize <id> | list
 ---
 
-> **Usage tracking:** Run `bash ~/.claude/hooks/track-skill.sh <<< '{"tool_input":{"skill":"wavemind"}}'` at the start of every invocation. Do not skip this step.
+> **Usage tracking:** Run `bash ~/.agents/hooks/track-skill.sh <<< '{"tool_input":{"skill":"wavemind"}}'` at the start of every invocation. Do not skip this step.
 
 # WaveMind: Thought Capture + Visualization
 
@@ -19,17 +20,17 @@ Transform thinking artifacts into beautiful visual maps of how your ideas evolve
 
 ## Commands
 
-### `/wavemind capture [filepath]`
+### `$wavemind capture [filepath]`
 Capture a thinking artifact. Two modes:
 
-**Mode 1: Import existing file** (`/wavemind capture <filepath>`)
+**Mode 1: Import existing file** (`$wavemind capture <filepath>`)
 1. Read the file at `<filepath>`
 2. Analyze the content to extract: title, round count, word count, source type
 3. Generate a short ID from the date and title (e.g., `20260327-zai-prep`)
 4. Run `bash lib/capture.sh <filepath> "<title>"` to copy and index it
 5. Report what was captured
 
-**Mode 2: Live capture** (`/wavemind capture` or `/wavemind capture "Topic Name"` or `/wavemind capture "Topic Name" --output /path/to/file.md`)
+**Mode 2: Live capture** (`$wavemind capture` or `$wavemind capture "Topic Name"` or `$wavemind capture "Topic Name" --output /path/to/file.md`)
 When no filepath is given (or filepath doesn't exist as a file to import), start a live capture session:
 1. Ask the user for a topic name if not provided
 2. **Determine output path:**
@@ -79,9 +80,9 @@ When no filepath is given (or filepath doesn't exist as a file to import), start
    - Do a final pass on the Promises section to make sure all promises from the conversation are captured with IDs
    - Run `bash lib/capture.sh` to finalize and index it
    - Report: artifact ID, title, round count, word count, file path
-   - Suggest: "Run `/wavemind visualize <id>` to generate the visual."
+   - Suggest: "Run `$wavemind visualize <id>` to generate the visual."
 
-### `/wavemind peer-read <filepath>`
+### `$wavemind peer-read <filepath>`
 Read an article together with the user, section by section, exchanging insights and building understanding through dialogue.
 
 **Steps:**
@@ -132,7 +133,7 @@ Read an article together with the user, section by section, exchanging insights 
    - Run `bash lib/capture.sh` to index it
    - Report: artifact ID, sections discussed, key takeaways
 
-### `/wavemind interview-reflect <transcript-path>`
+### `$wavemind interview-reflect <transcript-path>`
 Reflect on a real interview transcript section by section, with Bill as a critical thinking partner. Lily plays back the audio of the interview on her side, pauses, pastes each section into chat, and Bill responds with one round per section. Manual zoom-out at section boundaries.
 
 **This is not post-hoc analysis.** Don't read the transcript and summarize. The reflection happens live, paced by Lily's audio replay, so she's processing the interview in real time as we discuss it.
@@ -193,7 +194,7 @@ Reflect on a real interview transcript section by section, with Bill as a critic
     - Final pass on Promises — confirm all action items are captured with IDs.
     - Run `bash lib/capture.sh` to index it.
     - Report: artifact ID, total rounds, total promises, file path.
-    - Suggest: "Run `/wavemind visualize <id>` when you want the visual."
+    - Suggest: "Run `$wavemind visualize <id>` when you want the visual."
 
 **What this mode is NOT:**
 - Not post-hoc analysis (don't summarize the transcript, the reflection IS the value)
@@ -201,7 +202,7 @@ Reflect on a real interview transcript section by section, with Bill as a critic
 - Not visualize-during-reflection (visualize at the very end, separate command)
 - Not magical orchestration (don't try to auto-call `/promise` or other skills; promises live in the artifact)
 
-### `/wavemind lens <person-name>`
+### `$wavemind lens <person-name>`
 Load a persona from People Research and enter a conversation as that person. The person becomes your thinking partner with their actual values, opinions, and style.
 
 **Not for interview prep:** lens is a thinking partner, not an interviewer. For pre-interview persona discussions (aligning answer versions with the interviewer persona before a mock), use `persona-mock --discuss` — it carries the full packet (JD, weaknesses, prior debriefs) that lens lacks.
@@ -252,7 +253,7 @@ Load a persona from People Research and enter a conversation as that person. The
    - Return to normal mode
 
 
-### `/wavemind visualize <artifact-id>`
+### `$wavemind visualize <artifact-id>`
 Generate a living memory document from a stored thinking artifact.
 
 **Steps:**
@@ -274,7 +275,7 @@ Generate a living memory document from a stored thinking artifact.
 5. Save to `~/Documents/lily-memory/Thoughts/published/<id>.html`
 6. Report the file path
 
-### `/wavemind list`
+### `$wavemind list`
 Browse all stored thinking artifacts and their visualization status.
 
 **Steps:**
@@ -287,9 +288,9 @@ ID                          | Title                  | Rounds | Date       | Sta
 20260329-design-evolution   | Design Evolution       | 6      | 2026-03-29 | not visualized
 ```
 
-3. If no artifacts exist, say "No artifacts captured yet. Run `/wavemind capture` to start."
+3. If no artifacts exist, say "No artifacts captured yet. Run `$wavemind capture` to start."
 
-### `/wavemind promises`
+### `$wavemind promises`
 Show promises from today's artifacts, or the most recent artifact if none exist for today.
 
 **Steps:**
